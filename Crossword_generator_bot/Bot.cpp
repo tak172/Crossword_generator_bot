@@ -462,8 +462,18 @@ int main(int argc, char* argv[]) {
         printf("Bot username: %s\n", bot.getApi().getMe()->username.c_str());
         TgBot::TgLongPoll longPoll(bot);
         while (true) {
-            printf("Long poll started\n");
-            longPoll.start();
+            try {
+                printf("Long poll started\n");
+                longPoll.start();
+            }
+            catch (TgBot::TgException& e) {
+                std::string one(e.what()), two("Forbidden: bot was blocked by the user");
+                if (one == two) {
+                    for (auto& up : bot.getApi().getUpdates())
+                        up = nullptr;
+                }
+                else throw;
+            }
         }
     }
     catch (TgBot::TgException& e) {
