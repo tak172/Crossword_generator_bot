@@ -51,7 +51,7 @@ https://github.com/tak172/Crossword_generator_bot/assets/120005445/4a01198e-5630
 ## Documentation
 
 - [SQLite](https://www.sqlite.org/cintro.html);
-- [tgbot-cpp](https://reo7sp.github.io/tgbot-cpp/)
+- [tgbot-cpp](https://reo7sp.github.io/tgbot-cpp/);
 
 ## Developers
 
