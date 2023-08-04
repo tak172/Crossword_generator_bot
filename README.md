@@ -3,7 +3,7 @@
 </p>
 
 <p align="center">
-   <img src="https://img.shields.io/badge/Visual_Studio_2022-ISO_C%2B%2B_2020-yellow" alt="Standart">
+   <img src="https://img.shields.io/badge/Visual_Studio_2022-ISO_C%2B%2B_2020-yellow?logo=VisualStudio" alt="Standart">
    <img src="https://img.shields.io/badge/Crossword_generator_bot-v1.0-yellow" alt="Version">
    <img src="https://img.shields.io/badge/GNU%20General-Public%20License-yellow" alt="License">
 </p>
