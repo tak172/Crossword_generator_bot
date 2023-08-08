@@ -56,7 +56,7 @@ https://github.com/tak172/Crossword_generator_bot/assets/120005445/4a01198e-5630
 ## Developers
 
 - [Kromachev Timofey](https://github.com/tak172)
-- [Kromachev Maxim]()
+- [Kromachev Maxim](https://github.com/kromachmax)
 
 ## License
 Project Crossword_Generator_bot is distributed under the **GNU General Public License**.
