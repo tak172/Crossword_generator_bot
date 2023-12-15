@@ -4,48 +4,44 @@
 #include <vector>
 #include <algorithm>
 #include <ctime>
+#include "Utf8.h"
 
-class Generator {
-
-	struct GoodWord {
+class Generator 
+{
+	struct GoodWord 
+	{
 		size_t row;
 		size_t colomn;
 		size_t number_of_intersections;
 	};
-
-public:
-
-	enum class Direction {
+	enum class Direction
+	{
 		VERTICALLY,
 		HORIZONTALLY
 	};
 
-	explicit Generator(std::vector<std::string>& words);
-
-	std::string GetCrossword(bool language_flag) const noexcept;
-	void Generate(size_t count_used, Direction dir);
+public:
+	std::string GetCrossword( bool ) const;
+	void Generate( const std::vector<std::string> & );
 
 private:
+	void Preprocessing(  const std::vector<std::string> & );
+	void Processing( size_t, Direction );
+	bool HorizontalVariants( const std::wstring &, std::vector<GoodWord> & ) const;
+	bool VerticalVariants( const std::wstring &, std::vector<GoodWord> & ) const;
+	void VerticalPlacement( const GoodWord &, size_t );
+	void HorizontalPlacement( const GoodWord &, size_t );
+	void HorizontalCleaning( const GoodWord &, size_t );
+	void VerticalCleaning( const GoodWord &, size_t );
+	void VerticalProcessing( std::vector<GoodWord> &, size_t, size_t );
+	void HorizontalProcessing( std::vector<GoodWord> &, size_t, size_t );
 
-	bool HorizontalVariants(const std::string& word, std::vector<GoodWord>& options) const;
-	bool VerticalVariants(const std::string& word, std::vector<GoodWord>& options) const;
-
-	void VerticalPlacement(const GoodWord& word, size_t number_of_word) noexcept;
-	void HorizontalPlacement(const GoodWord& word, size_t number_of_word) noexcept;
-
-	void HorizontalCleaning(const GoodWord& word, size_t number_of_word) noexcept;
-	void VerticalCleaning(const GoodWord& word, size_t number_of_word) noexcept;
-
-	void VerticalProcessing(std::vector<GoodWord>& options, size_t number_of_word, size_t count_used);
-	void HorizontalProcessing(std::vector<GoodWord>& options, size_t number_of_word, size_t count_used);
-
-	std::vector<std::string> words_;
+	std::vector<std::wstring> words_;
 	std::vector<bool> used_;
-	std::vector<std::vector<char>> board_;
+	std::vector<std::vector<wchar_t>> board_;
 	std::vector<std::vector<bool>> check_intersection_;
-	bool succsess = false;
+	bool success = false;
 
 	clock_t start = clock();
 	clock_t delay = 300 * CLOCKS_PER_SEC;
-
 };
