@@ -64,7 +64,7 @@ std::string Generator::GetCrossword( bool language_flag ) const
 		crossword += L"\n</tr>\n";
 	}
 	crossword += L"</table>\n</body>\n</html>\n";
-	return ToUtf8( crossword );
+	return cvt_utf8.to_bytes( crossword );
 }
 
 void Generator::Generate( const std::vector<std::string> & words )
@@ -83,7 +83,7 @@ void Generator::Preprocessing( const std::vector<std::string> & words )
 	check_intersection_.clear();
 
 	for ( const auto & word : words )
-		words_.push_back( FromUtf8( word ) );
+		words_.push_back( cvt_utf8.from_bytes( word ) );
 	used_.resize( words_.size(), false );
 	board_.resize( 50, std::vector<wchar_t>( 50, '_' ) );
 	check_intersection_.resize( 50, std::vector<bool>( 50, false ) );

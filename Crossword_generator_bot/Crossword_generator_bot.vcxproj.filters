@@ -13,9 +13,6 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="Convert">
-      <UniqueIdentifier>{65cee26a-23a8-49c7-929e-5e2c526b1f62}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Bot.cpp">
@@ -24,19 +21,10 @@
     <ClCompile Include="Generator.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="Utf8.cpp">
-      <Filter>Convert</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Generator.h">
       <Filter>Файлы заголовков</Filter>
-    </ClInclude>
-    <ClInclude Include="RT_Macros.h">
-      <Filter>Convert</Filter>
-    </ClInclude>
-    <ClInclude Include="Utf8.h">
-      <Filter>Convert</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

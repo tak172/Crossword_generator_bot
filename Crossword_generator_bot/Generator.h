@@ -4,7 +4,9 @@
 #include <vector>
 #include <algorithm>
 #include <ctime>
-#include "Utf8.h"
+#include <codecvt>
+#include <cstdint>
+#include <locale>
 
 class Generator 
 {
@@ -25,7 +27,7 @@ public:
 	void Generate( const std::vector<std::string> & );
 
 private:
-	void Preprocessing(  const std::vector<std::string> & );
+	void Preprocessing( const std::vector<std::string> & );
 	void Processing( size_t, Direction );
 	bool HorizontalVariants( const std::wstring &, std::vector<GoodWord> & ) const;
 	bool VerticalVariants( const std::wstring &, std::vector<GoodWord> & ) const;
@@ -41,6 +43,8 @@ private:
 	std::vector<std::vector<wchar_t>> board_;
 	std::vector<std::vector<bool>> check_intersection_;
 	bool success = false;
+
+	mutable std::wstring_convert<std::codecvt_utf8<wchar_t>> cvt_utf8;
 
 	clock_t start = clock();
 	clock_t delay = 300 * CLOCKS_PER_SEC;

@@ -70,6 +70,8 @@ bool CheckWord( TgBot::Message::Ptr& message, bool language_flag )
     if ( message_text.size() > 20 || message_text.size() < 2 || message_text.find(u8' ') != std::string::npos )
         return false;
 
+    std::wstring_convert<std::codecvt_utf8<wchar_t>> cvt_utf8;
+
     if ( language_flag ) 
     {
         for ( auto& sim : message_text ) 
@@ -80,7 +82,7 @@ bool CheckWord( TgBot::Message::Ptr& message, bool language_flag )
     }
     else 
     {
-        for ( auto & sim : FromUtf8( message_text ) )
+        for ( auto & sim : cvt_utf8.from_bytes( message_text ) )
         {
             if ( !( ( Rus_upper( sim ) >= L'А' && Rus_upper( sim ) <= L'Я' ) || Rus_upper(sim) == L'Й' || Rus_upper(sim) == L'Ё' ) )
                 return false;
